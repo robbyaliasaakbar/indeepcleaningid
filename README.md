@@ -47,6 +47,7 @@ indeepcleaningid.site/
 ├── .htaccess                   ← URL rewriting & redirect rules
 ├── robots.txt                  ← Robot crawler rules
 ├── sitemap.xml                 ← XML sitemap
+├── humans.txt                  ← Info tim & situs
 └── favicon.svg                 ← Ikon website
 ```
 

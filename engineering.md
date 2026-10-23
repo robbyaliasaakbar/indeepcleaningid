@@ -202,6 +202,22 @@ halaman statis.
 
 **File:** `README.md`, `contributing.md`, `engineering.md`
 
+### Tambah `humans.txt`
+
+**Apa:** Tambah `humans.txt` di root. Isinya info tim, info situs, projek
+terkait, dan catatan cakupan repo — format mengikuti `humans.txt` yang sudah
+ada di repo landing page.
+
+**Kenapa:** Wajib ada sebelum go-live (aturan stack). Juga jadi penanda eksplisit
+buat siapa pun yang buka repo bahwa app booking & landing page dikelola di
+repo terpisah.
+
+**Yang berubah:**
+- Buat `humans.txt` — data kontak diambil dari JSON-LD `LocalBusiness` di
+  `index.html` supaya konsisten (telepon, email, alamat, IG)
+
+**File:** `humans.txt`
+
 ---
 
 ## Format Entry
