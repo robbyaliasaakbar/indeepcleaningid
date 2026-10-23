@@ -1,0 +1,51 @@
+# ============================================
+# INDEEP CLEANING ID — .gitignore
+# ============================================
+# File-file di bawah ini TIDAK boleh masuk repo
+# karena bukan bagian website yang di-serve ke live.
+
+# --- File development / tooling (bukan website) ---
+__shot.html
+chat.md
+.commandcode/
+*.sh
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Environment / secrets ---
+.env
+.env.*
+*.local
+
+# --- Log files ---
+*.log
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Node (kalau nanti ada tooling) ---
+node_modules/
+
+# --- Backup files ---
+*.bak
+*.backup
+*.orig
+
+# --- Data pelanggan (jangan masuk repo publik) ---
+assets/img/testimoni/Catatan Testimoni Pelanggan.md
+
+# Folder plan
+plan_prd/
+
+# Landing page conversion, punya repository GitHub sendiri
+landing_page/
+
+# Arsip aset yang tidak dipakai halaman, disimpan di disk tapi tidak masuk repo
+assets-arsip/
