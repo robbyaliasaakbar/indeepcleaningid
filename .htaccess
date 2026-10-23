@@ -105,9 +105,22 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^services/baby-stuff$ /services/baby-stuff.html [L]
 
 # ============================================
+# BLOKIR FILE DOKUMENTASI REPO
+# ============================================
+# File-file ini perlu ada di repo (dibaca GitHub), tapi tidak boleh
+# diakses lewat browser. Auto-deploy Hostinger menyalin seluruh isi repo
+# ke public_html/, jadi tanpa blokir ini README.md dkk bisa dibuka publik
+# dan ikut keindeks mesin pencari.
+# CATATAN: humans.txt sengaja TIDAK diblokir — itu memang untuk publik.
+#
+# Pakai RedirectMatch (mod_alias), bukan Require all denied: jalan di
+# Apache 2.2 maupun 2.4, jadi aman di shared hosting apa pun.
+
+RedirectMatch 404 ^/(README|readme|CONTRIBUTING|contributing|ENGINEER|engineering|LICENSE|license|LICENCE|licence)(\.(md|txt))?$
+
+# ============================================
 # PERFORMANCE & SECURITY HEADERS
 # ============================================
-
 # Enable Browser Caching
 <IfModule mod_expires.c>
     ExpiresActive On

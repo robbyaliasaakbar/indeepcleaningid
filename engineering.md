@@ -218,6 +218,43 @@ repo terpisah.
 
 **File:** `humans.txt`
 
+### Blokir file dokumentasi repo dari akses publik
+
+**Apa:** `README.md`, `contributing.md`, `engineering.md`, dan `LICENSE`
+diblokir dari akses web lewat `.htaccess`, plus ditambah `Disallow` di
+`robots.txt`.
+
+**Kenapa:** Auto-deploy Hostinger menyalin seluruh isi repo ke `public_html/`,
+jadi file dokumentasi ikut bisa dibuka publik di `indeepcleaningid.site/README.md`
+dan berpotensi keindeks mesin pencari. Ditemukan saat verifikasi production
+pasca-deploy pertama: keempat file itu balas `200`. Isinya tidak memuat
+credential, tapi `engineering.md` memuat path internal dan alur kerja repo —
+tidak layak tampil di halaman publik.
+
+**Yang berubah:**
+- `.htaccess`: tambah `RedirectMatch 404` untuk README/contributing/engineering/LICENSE
+  (dengan atau tanpa ekstensi, case-insensitive). Dipilih `RedirectMatch` (mod_alias)
+  bukan `Require all denied` supaya kompatibel Apache 2.2 maupun 2.4 — aman di
+  shared hosting mana pun. `humans.txt` sengaja tidak diblokir.
+- `robots.txt`: tambah `Disallow` untuk 4 file tersebut
+
+**File:** `.htaccess`, `robots.txt`
+
+### Update `lastmod` sitemap.xml ke 2026-10-23
+
+**Apa:** Semua 11 entry di `sitemap.xml` diubah `lastmod`-nya dari `2026-10-14`
+jadi `2026-10-23`.
+
+**Kenapa:** Seluruh halaman HTML terakhir dimodifikasi 2026-10-23 (perubahan
+meta, logo, dan struktur section), tapi `sitemap.xml` masih menandai
+2026-10-14. Sitemap yang `lastmod`-nya basi bikin crawler malas re-crawl
+halaman yang sebenarnya sudah berubah.
+
+**Yang berubah:**
+- `sitemap.xml`: 11 `lastmod` → `2026-10-23`
+
+**File:** `sitemap.xml`
+
 ---
 
 ## Format Entry

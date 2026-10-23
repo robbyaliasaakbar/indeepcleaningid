@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+# File dokumentasi repo — sudah dibalas 404 oleh .htaccess (RedirectMatch)
+Disallow: /README.md
+Disallow: /contributing.md
+Disallow: /engineering.md
+Disallow: /LICENSE
 
 Sitemap: https://indeepcleaningid.site/sitemap.xml
